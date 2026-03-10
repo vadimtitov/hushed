@@ -1,0 +1,32 @@
+Architectures: amd64 arm64
+Codename: stable
+Components: main
+Date: Tue, 10 Mar 2026 18:23:58 +0000
+Description: hushed APT repository
+Label: hushed
+Origin: hushed
+Suite: stable
+MD5Sum:
+ 4ba1150da83f8f33944066b2cf9b4962              177 Release
+ a8f2126e49ecd1de31955d31574127a9              573 main/binary-amd64/Packages
+ 12b036b69092bfe71447dd5b32778ef6              427 main/binary-amd64/Packages.gz
+ 785c402282bd8a917a4d15eb5120d5ca              543 main/binary-arm64/Packages
+ 2d000ed80773910b3e99ce6c3fcbf367              411 main/binary-arm64/Packages.gz
+SHA1:
+ 2d3df3e982cee6005b039956e457f9e04f5fcfef              177 Release
+ bd835c578eee8d0f2c818b8238723f4792c456c2              573 main/binary-amd64/Packages
+ 0b9e5dee046684215c734ff1aa7a30c9921cb14d              427 main/binary-amd64/Packages.gz
+ fb25a19c42330715a5504e791de29bf649b41da3              543 main/binary-arm64/Packages
+ d4affd8d762fa0e039de1659dac359fdb7a00e57              411 main/binary-arm64/Packages.gz
+SHA256:
+ 42c4a605dd4da6a4e7728a81b07c6b2ade0bdde10c512c5060441921e9db543c              177 Release
+ a264e87c0ca988601acf6f6c1bd553509d501ff68609e9ed94902572d95b92bf              573 main/binary-amd64/Packages
+ 01552f0dd7b58549bdd47e5503b254f72d75b44a79d30b9b9930dbf58bd3fc57              427 main/binary-amd64/Packages.gz
+ 052fd0ba291428c4f9e8f3974182b06b63448eb584bc57f47bba13da57aaf07c              543 main/binary-arm64/Packages
+ 7eac50d95c07655fd10b1aeada2906921416e902bbc98520a9c1fef07063c709              411 main/binary-arm64/Packages.gz
+SHA512:
+ 411d777042a05fc90cd754454899e6128d20ae89fb115d09907f436f5783c03cdff4c3a5798b2dae08aa7fef7a13a6f1d90c84309bd3509c1a9bd50fbc55309e              177 Release
+ 7772b80dc69dfe82de19f48027c905cb57feb0852a0c2eaf0c2c97294579d8a2bb7972d0098e0911d62fd2b642359ae8112f679cf2cd9af9f1598fee35b725aa              573 main/binary-amd64/Packages
+ 860302f41f4add3d8b26c20f68f34c4b59359382593c049aac6ee3393064195c7bd9ba1ff913a384b2eaa8578462181a7b2e69aefa815902febf2eefbef737e1              427 main/binary-amd64/Packages.gz
+ 33813890519b93b05ade9ae181a0ccd3a2b22ed15cd02ae9bde58977f6a4befd04e9613f1926e3624dcf16aee21681a9ca84eb8aae3ae55e674fb11a4cbf380d              543 main/binary-arm64/Packages
+ 835b3f9f3ab3e55ab367da939f5a7cee5cb0948270036fa8d10e6bbe1641a0fb45f6365c49e8794d4f51b7d4edd6caf3c9475b587dd04bd2423e6ba9f3299a80              411 main/binary-arm64/Packages.gz

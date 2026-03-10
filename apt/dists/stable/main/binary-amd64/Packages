@@ -1,0 +1,15 @@
+Package: hushed
+Version: 0.1.2
+Architecture: amd64
+Maintainer: Vadim Titov <vadimtitov@users.noreply.github.com>
+Installed-Size: 4052
+Filename: pool/main/hushed_0.1.2_linux_amd64.deb
+Size: 1763640
+MD5sum: ce92c4e733f87015061f4adc9bdd48af
+SHA1: 20483d3941b12ddecc5389b8562d65997662bc86
+SHA256: b0175c66a8487b1fdbbba4f857b304c9ca81af4ed23686c24de2b70fff968ed4
+Priority: optional
+Homepage: https://github.com/vadimtitov/hushed
+Description: Keep secrets out of shell output. A simple CLI secret manager for LLM agents and automation.
+Architecture-Variant: amd64v1
+License: MIT
