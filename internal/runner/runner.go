@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/vti/hushed/internal/redact"
+	"github.com/vadimtitov/hushed/internal/redact"
 )
 
 // Run executes cmd[0] with args cmd[1:], injecting secrets as environment

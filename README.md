@@ -2,12 +2,12 @@
 
 Keep secrets out of shell output. A simple CLI secret manager for LLM agents and automation.
 
-[![CI](https://github.com/vti/hushed/actions/workflows/release.yml/badge.svg)](https://github.com/vti/hushed/actions/workflows/release.yml)
+[![CI](https://github.com/vadimtitov/hushed/actions/workflows/release.yml/badge.svg)](https://github.com/vadimtitov/hushed/actions/workflows/release.yml)
 
 ## Install
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/vti/hushed/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/vadimtitov/hushed/main/install.sh | bash
 ```
 
 <details>
@@ -15,14 +15,14 @@ curl -fsSL https://raw.githubusercontent.com/vti/hushed/main/install.sh | bash
 
 **Debian / Ubuntu — apt** (one-time repo setup, then upgrades with `apt upgrade`):
 ```sh
-echo "deb [trusted=yes] https://vti.github.io/hushed/apt stable main" \
+echo "deb [trusted=yes] https://vadimtitov.github.io/hushed/apt stable main" \
   | sudo tee /etc/apt/sources.list.d/hushed.list
 sudo apt update && sudo apt install hushed
 ```
 
 **Go:**
 ```sh
-go install github.com/vti/hushed/cmd/hushed@latest
+go install github.com/vadimtitov/hushed/cmd/hushed@latest
 ```
 </details>
 

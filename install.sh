@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="vti/hushed"
+REPO="vadimtitov/hushed"
 INSTALL_DIR="/usr/local/bin"
 BINARY="hushed"
 
