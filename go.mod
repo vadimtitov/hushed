@@ -1,4 +1,4 @@
-module github.com/vti/hushed
+module github.com/vadimtitov/hushed
 
 go 1.26.1
 

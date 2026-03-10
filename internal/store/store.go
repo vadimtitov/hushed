@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"sort"
 
-	"github.com/vti/hushed/internal/config"
-	"github.com/vti/hushed/internal/crypto"
+	"github.com/vadimtitov/hushed/internal/config"
+	"github.com/vadimtitov/hushed/internal/crypto"
 )
 
 // secretsFile is the on-disk JSON structure.

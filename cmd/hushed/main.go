@@ -11,9 +11,9 @@ import (
 	"github.com/spf13/cobra"
 	"golang.org/x/term"
 
-	"github.com/vti/hushed/internal/config"
-	"github.com/vti/hushed/internal/runner"
-	"github.com/vti/hushed/internal/store"
+	"github.com/vadimtitov/hushed/internal/config"
+	"github.com/vadimtitov/hushed/internal/runner"
+	"github.com/vadimtitov/hushed/internal/store"
 )
 
 // version is set via -ldflags at build time.
