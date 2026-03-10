@@ -3,7 +3,7 @@ module github.com/vadimtitov/hushed
 go 1.22
 
 require (
-	filippo.io/age v1.2.0
+	filippo.io/age v1.2.1
 	github.com/spf13/cobra v1.8.0
 	golang.org/x/term v0.21.0
 )
