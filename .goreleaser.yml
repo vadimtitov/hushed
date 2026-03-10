@@ -22,10 +22,12 @@ archives:
     builds:
       - hushed
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-    format: tar.gz
+    formats:
+      - tar.gz
     format_overrides:
       - goos: windows
-        format: zip
+        formats:
+          - zip
 
 nfpms:
   - id: hushed
@@ -34,7 +36,7 @@ nfpms:
       - hushed
     vendor: vadimtitov
     homepage: https://github.com/vadimtitov/hushed
-    maintainer: vadimtitov
+    maintainer: Vadim Titov <vadimtitov@users.noreply.github.com>
     description: "Keep secrets out of shell output. A simple CLI secret manager for LLM agents and automation."
     license: MIT
     formats:

@@ -1,6 +1,6 @@
 module github.com/vadimtitov/hushed
 
-go 1.26.1
+go 1.22
 
 require (
 	filippo.io/age v1.2.0
