@@ -72,51 +72,49 @@ jobs:
           name: debs
           path: debs/
 
-      - name: Checkout repo (to create gh-pages if needed)
+      - name: Install APT repo tools
+        run: sudo apt-get install -y dpkg-dev apt-utils
+
+      - name: Checkout gh-pages
         uses: actions/checkout@v4
         with:
+          ref: gh-pages
+          path: gh-pages
           fetch-depth: 0
-          path: repo
+        continue-on-error: true
 
-      - name: Ensure gh-pages branch exists
+      - name: Init gh-pages if missing
         run: |
-          cd repo
-          if git ls-remote --exit-code origin gh-pages; then
-            git checkout gh-pages
-          else
+          if [ ! -d gh-pages/.git ]; then
+            git init gh-pages
+            cd gh-pages
             git checkout --orphan gh-pages
-            git rm -rf .
-            git commit --allow-empty -m "init gh-pages"
-            git push origin gh-pages
+            git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/vadimtitov/hushed.git
+          else
+            cd gh-pages
+            git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/vadimtitov/hushed.git
           fi
-          cd ..
-          cp -r repo gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build APT repository
         run: |
           set -e
           mkdir -p gh-pages/apt/pool/main
-          # Copy new .deb files into pool
           cp debs/*.deb gh-pages/apt/pool/main/
 
-          # Generate flat Packages index for each architecture
           cd gh-pages/apt
           mkdir -p dists/stable/main/binary-amd64
           mkdir -p dists/stable/main/binary-arm64
 
-          dpkg-scanpackages --multiversion pool/main | \
-            grep -v "^$" > /tmp/Packages_all
+          # Generate per-architecture Packages files
+          dpkg-scanpackages --multiversion pool/main /dev/null 2>/dev/null \
+            > /tmp/Packages_all
 
-          grep -A 999 "Architecture: amd64" /tmp/Packages_all | \
-            awk '/^Package:/{p=1} p{print} /^$/{p=0}' \
-            > dists/stable/main/binary-amd64/Packages || true
+          awk 'BEGIN{RS=""; FS="\n"} /Architecture: amd64/' /tmp/Packages_all \
+            > dists/stable/main/binary-amd64/Packages
           gzip -9 -k dists/stable/main/binary-amd64/Packages
 
-          grep -A 999 "Architecture: arm64" /tmp/Packages_all | \
-            awk '/^Package:/{p=1} p{print} /^$/{p=0}' \
-            > dists/stable/main/binary-arm64/Packages || true
+          awk 'BEGIN{RS=""; FS="\n"} /Architecture: arm64/' /tmp/Packages_all \
+            > dists/stable/main/binary-arm64/Packages
           gzip -9 -k dists/stable/main/binary-arm64/Packages
 
           # Generate Release file
@@ -138,5 +136,3 @@ jobs:
           git add apt/
           git diff --cached --quiet || git commit -m "apt: publish ${GITHUB_REF_NAME}"
           git push origin gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
