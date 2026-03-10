@@ -1,0 +1,60 @@
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: hushed
+    main: ./cmd/hushed
+    binary: hushed
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: hushed
+    builds:
+      - hushed
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+
+nfpms:
+  - id: hushed
+    package_name: hushed
+    builds:
+      - hushed
+    vendor: vti
+    homepage: https://github.com/vti/hushed
+    maintainer: vti
+    description: "Keep secrets out of shell output. A simple CLI secret manager for LLM agents and automation."
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/local/bin
+
+checksum:
+  name_template: "checksums.txt"
+  algorithm: sha256
+
+release:
+  github:
+    owner: vti
+    name: hushed
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^chore:"
